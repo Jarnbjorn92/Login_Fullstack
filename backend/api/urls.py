@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from api import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', views.user_list)
+    path('user/', views.user_list),
+    path('user/<int:id>', views.user_detail)
 ]
+
+# ALLOWS .JSON EXTENSION TO VIEW AS OBJECT (FORMAT ENDPOINT PARAM WITH FORMAT=NONE)
+urlpatterns = format_suffix_patterns(urlpatterns)

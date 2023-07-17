@@ -5,4 +5,4 @@ class User(models.Model):
     password = models.CharField(max_length=32)
 
     def __str__(self):
-        return self.user_name
+        return self.name
