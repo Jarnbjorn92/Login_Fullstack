@@ -1,0 +1,14 @@
+.inputField {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.loginButton {
+    background-color: #724caf;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 15px;
+}
