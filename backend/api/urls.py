@@ -18,11 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from api import views
 from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView, TokenVerifyView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', views.user_list),
-    path('users/<int:id>', views.user_detail)
+    path('users/<int:id>', views.user_detail),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify')
 ]
 
 # ALLOWS .JSON EXTENSION TO VIEW AS OBJECT (FORMAT ENDPOINT PARAM WITH FORMAT=NONE)

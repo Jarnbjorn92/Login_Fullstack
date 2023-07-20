@@ -7,7 +7,7 @@ from rest_framework import status
 
 # GET ALL API ENDPOINT
 @api_view(['GET', 'POST'])
-def user_list(request, format=None):
+def user_list(request):
 
     if request.method == 'GET':
         users = User.objects.all()
@@ -22,7 +22,7 @@ def user_list(request, format=None):
 
 # GET BY ID
 @api_view(['GET', 'PUT', 'DELETE'])
-def user_detail(request, id, format=None):
+def user_detail(request, id):
 
     # Gets object by id (pk = primary key)
     try:
