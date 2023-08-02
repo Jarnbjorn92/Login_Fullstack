@@ -17,7 +17,7 @@ const LoginPage = () => {
     // API GET REQUEST FOR ALL USERS USING AXIOS
     const fetchUsers = async () => {
         try {
-            const response = await api.get('/users');
+            const response = await api.get('/user');
             console.log(response.data)
             setUsers(response.data);
         } catch (err) {

@@ -3,7 +3,6 @@ import './Login.css'
 
 const Login = ({ users }) => {
 
-
     // SETTING STATE FOR USER
     const [usernameInput, setUsernameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
