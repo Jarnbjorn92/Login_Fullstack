@@ -26,7 +26,7 @@ def user_detail(request, id):
 
     # Gets object by id (pk = primary key)
     try:
-        user = User.objects.get(pk=id)
+        user = User.objects.get(pk = id)
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -36,7 +36,7 @@ def user_detail(request, id):
     
     # Update data
     elif request.method == 'PUT':
-        serializer = UserSerializer(user, data=request.data)
+        serializer = UserSerializer(user, data = request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
