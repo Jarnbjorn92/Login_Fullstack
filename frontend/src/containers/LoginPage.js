@@ -1,7 +1,7 @@
 import {useEffect , useState} from 'react';
 import './LoginPage.css';
 import Login from '../components/Login';
-import api from '../api/Users';
+import AuthContext from '../context/AuthContext';
 
 const LoginPage = () => {
 
@@ -17,7 +17,7 @@ const LoginPage = () => {
     // API GET REQUEST FOR ALL USERS USING AXIOS
     const fetchUsers = async () => {
         try {
-            const response = await api.get('/user');
+            const response = await AuthContext.get('/user');
             console.log(response.data)
             setUsers(response.data);
         } catch (err) {
