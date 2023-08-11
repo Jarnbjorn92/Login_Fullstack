@@ -5,7 +5,7 @@ from .models import *
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'password']
+        fields = ['id', 'first_name', 'last_name', 'username', 'password']
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -13,7 +13,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         # Add custom claims
-        token['username'] = user.username
         token['first_name'] = user.first_name
         token['last_name'] = user.last_name
+        token['username'] = user.username
+        token['password'] = user.password
         return token
